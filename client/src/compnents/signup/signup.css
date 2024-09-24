@@ -1,0 +1,37 @@
+/* Login.css */
+.btn-theme {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .account-block {
+    background: url(https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/24340dc6-edf8-4e0e-ac26-3559d7fbb093/73266d40-ec2f-40b8-b273-17a904db1969.png) no-repeat center ;
+   
+   
+    background-size: cover;
+    position: relative;
+    margin: 10px ;
+    height: 100%;
+    background-position: center;
+    padding: 5px 5px;
+    border-radius: 15px;
+    width: 80%;
+    
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .account-testimonial {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+  }
+  

@@ -1,0 +1,22 @@
+import React from 'react'
+import { GeneralContextProvider } from './GeneralContext'
+import WatchList from './WatchList'
+import TopBar from './TopBar'
+import { ThemeProvider ,createTheme } from '@mui/material/styles'
+
+const theme = createTheme();
+const Gp = () => {
+  return (
+    <div>
+        <ThemeProvider theme={theme}>
+      
+        <TopBar/>
+        <WatchList/>
+     
+        </ThemeProvider>
+     
+    </div>
+  )
+}
+
+export default Gp
