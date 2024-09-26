@@ -168,8 +168,8 @@ code {
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 300;
+  font-size: 3rem;
+  font-weight: 500;
   color: rgb(71, 71, 71);
   margin-bottom: 3%;
 }
@@ -398,8 +398,8 @@ hr {
 }
 
 .title {
-  font-size: 1.3rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: rgb(71, 71, 71);
   margin-bottom: 2%;
 }
@@ -864,9 +864,9 @@ hr {
 
 
 
-@media (min-width:600) {
-  nav{
+@media (max-width:600) {
+  .nav{
     display: none;
-    visibility: hidden;
+ 
   }
 }

@@ -1,104 +1,91 @@
-import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem , Button , Link } from "@nextui-org/react";
+import React, { useState } from 'react';
+import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemText, Box, Link } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import {AcmeLogo} from './AcmeLogo.js'
 
-import { AcmeLogo } from "./AcmeLogo.js";
+const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
 
   const menuItems = [
-    "Dashboard",
-    "Orders",
-    "Holdings",
-    "Positions",
-    "Funds",
-    "Apps",
-    "Help & Feedback",
-    "Log Out",
+    { text: 'Dashbord', href: '/' },
+    { text: 'Positions', href: '/positions' },
+    { text: 'Holdings', href: '/holdings' },
+    { text: 'Orders', href: '/orders' },
+    { text: 'Funds', href: '/funds' },
+    { text: 'Watch', href: '/watch' },
+    { text: 'Apps', href: '/apps' },
+    
   ];
 
-  return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="shadow-lg">
-      {/* Left side: Logo and menu toggle for small screens */}
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">KITE</p>
-        </NavbarBrand>
-      </NavbarContent>
-
-      {/* Middle: Links for larger screens */}
-      <NavbarContent className=" sm:hidden lg:flex gap-4 text-white" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="/" >
-            Dashboard
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/orders" color="foreground">
-            Orders
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/holdings">
-            Holdings
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/positions">
-            Positions
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/funds">
-            Funds
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/watch">
-            Watch
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/apps">
-            Apps
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-
-      {/* Right side: User and login actions */}
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            User
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-
-      {/* Navbar menu for smaller screens */}
-      <NavbarMenu isOpen={isMenuOpen}>
+  const drawerList = (
+    <Box
+      sx={{ width:350 , color:"black" }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <IconButton onClick={toggleDrawer(false)} sx={{ float: 'right' }}>
+        <CloseIcon />
+      </IconButton>
+      <List>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
+          <ListItem button key={index} component="a" href={item.href}>
+            <ListItemText primary={item.text} />
+          </ListItem>
         ))}
-      </NavbarMenu>
-    </Navbar>
+      </List>
+    </Box>
   );
-}
+
+  return (
+    <AppBar position="static" sx={{bgcolor:"white" ,color:'black' , padding:" 0 20px"}}>
+      <Toolbar>
+        {/* Navbar Title */}
+        <Typography variant="h6" sx={{ flexGrow: 1 , display:'flex' }}>
+          <AcmeLogo/>
+          <Link href="/" sx={{textDecoration:"none" , fontFamily:"sans-serif"}} target="_blank" rel="noopener">
+        KITE
+      </Link>
+        </Typography>
+       
+        {/* Links for larger screens */}
+        <Box sx={{ display: { xs: 'none', md: 'block', marginLeft:"50px" } }}>
+          {menuItems.map((item, index) => (
+            <Button key={index} color="inherit" href={item.href}>
+              {item.text}
+            </Button>
+            
+          ))}
+        </Box>
+        <Button color="" sx={{bgcolor:"#0d6efd" , color:"white"}} href={"/signup"}>
+              SignUp
+            </Button>
+        {/* Hamburger Icon for smaller screens */}
+        <IconButton
+          color="inherit"
+          aria-label="menu"
+          edge="end"
+          onClick={toggleDrawer(true)}
+          sx={{ display: { xs: 'block', md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        {/* Drawer for smaller screens */}
+        <Drawer sx={{width:"100%"}} anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+          {drawerList}
+        </Drawer>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default Navbar;

@@ -9,9 +9,11 @@ const Gp = () => {
   return (
     <div>
         <ThemeProvider theme={theme}>
-      
-        <TopBar/>
-        <WatchList/>
+      <GeneralContextProvider>
+      <TopBar/>
+      <WatchList/>
+      </GeneralContextProvider>
+       
      
         </ThemeProvider>
      

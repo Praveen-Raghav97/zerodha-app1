@@ -4,10 +4,10 @@ import{holdings} from "../data/data.js"
 const Holdings = () => {
 
   return (
-    <div div className='px-5 py-5'>
-      <h3 className="title">Holdings ({holdings.length})</h3>
+    <div div className='px-5 py-5 shadow-lg'>
+      <h3 className="title ">Holdings ({holdings.length})</h3>
 
-      <div className="order-table shadow-lg">
+      <div className="order-table ">
         <table>
           <tr>
             <th>Instrument</th>

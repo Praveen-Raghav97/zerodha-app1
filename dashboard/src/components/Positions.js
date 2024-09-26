@@ -4,7 +4,7 @@ import { positions } from "../data/data";
 
 const Positions = () => {
   return (
-    <div className="shadow-lg h-full py-5 ">
+    <div className="shadow-lg h-full py-5  px-5 ">
       <h3 className="title">Positions ({positions.length})</h3>
 
       <div className="order-table">
