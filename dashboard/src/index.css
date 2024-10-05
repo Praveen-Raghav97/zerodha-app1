@@ -653,14 +653,29 @@ hr {
 }
 
 .watchlist-container {
-  flex-basis: 32%;
+
   height: 100%;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px 1px rgb(236, 235, 235);
   overflow-y: auto;
   position: relative;
 }
+.donchart{
+  height: 100%;
+  display: flex;
+  width: 600px;
+  align-items: center; 
+  justify-content: center;
+margin-left: 30%;
+margin-bottom: 20px;
 
+}
+@media (max-width:650px) {
+ .donchart{
+  margin-left: 1%;
+  width: 300px;
+ } 
+}
 .search-container {
   display: flex;
   align-items: center;

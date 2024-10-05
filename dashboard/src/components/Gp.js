@@ -1,5 +1,5 @@
 import React from 'react'
-import { GeneralContextProvider } from './GeneralContext'
+import { GeneralContextProvider } from './GeneralContext.js'
 import WatchList from './WatchList'
 import TopBar from './TopBar'
 import { ThemeProvider ,createTheme } from '@mui/material/styles'
