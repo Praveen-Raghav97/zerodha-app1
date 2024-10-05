@@ -7,26 +7,16 @@ import Holdings from "./Holdings";
 import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
-import WatchList from "./WatchList";
 
-import {ThemeProvider , createTheme} from '@mui/material/styles'
+
+
 import TopBar from './TopBar.js';
 import Gp from './Gp.js';
  export const Dashboard = () => {
-  const handleOpenBuyWindow= ""
-    const handleCloseBuyWindow =""
-    const isBuyWindowOpen  = ""
-  const   selectedStockUID =''
+ 
 
 // Create a theme object
-const theme = createTheme({
-  palette: {
-    mode: 'light', // or 'dark'
-    primary: {
-      main: '#1976d2', // example color for primary
-    },
-  },
-});
+
   return (
     <div className="dashboard-container">
    

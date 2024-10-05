@@ -11,7 +11,7 @@ app.use(cors(
   
 ))
 
-const PORT = process.env.HOST_URL || 3001;
+const PORT =  3001;
 const mongoUrl =  process.env.MONGO_URL;
 //console.log(mongoUrl)
 // Middleware to parse JSON

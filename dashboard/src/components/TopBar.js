@@ -1,6 +1,6 @@
 import React from 'react'
-import Menu from './Menu.js'
-import WatchList from './WatchList.js'
+
+
 const TopBar = () => {
   return (
     <div className="topbar-container w-auto">

@@ -1,6 +1,6 @@
-"use client"
+
 import React, { useEffect, useState } from 'react'
-import{holdings} from "../data/data.js"
+//import{holdings} from "../data/data.js"
 import axios from 'axios'
 import { VerticalGraph } from './VerticalGraph.js'
 const Holdings = () => {

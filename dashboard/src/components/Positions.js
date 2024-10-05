@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { positions } from "../data/data";
+//import { positions } from "../data/data";
 import axios from "axios";
 
 const Positions = () => {

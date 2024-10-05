@@ -5,7 +5,7 @@ import Home from './components/Home.js'
 import reportWebVitals from './reportWebVitals';
 import { NextUIProvider } from '@nextui-org/react';
 import {BrowserRouter , Routes , Route} from 'react-router-dom'
-import { ThemeProvider } from '@mui/material';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
