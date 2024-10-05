@@ -21,7 +21,9 @@ app.use("/positions" , positionsRouter)
 
 
 
-
+app.get('/', (req, res) => {
+  res.send('Hello, Zerodha UI!');
+});
 
 // Example POST route
 app.post('/data', (req, res) => {
