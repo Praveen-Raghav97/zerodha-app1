@@ -7,9 +7,12 @@ import holdingsRouter from './routes/holdings.route.js';
 import positionsRouter from './routes/positions.route.js';
 dotenv.config();
 const app = express();
-app.use(cors(
-  
-))
+app.use(cors({
+  origin:["https://zerodha-app1-huzt.vercel.app"],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials:true,
+
+}));
 
 const PORT =  3001;
 const mongoUrl =  process.env.MONGO_URL;
