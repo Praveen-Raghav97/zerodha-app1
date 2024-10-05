@@ -9,7 +9,7 @@ const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/allPositions").then((res) => {
+    axios.get("https://zerodha-app-api.vercel.app/positions").then((res) => {
       // console.log(res.data);
       setAllPositions(res.data);
     }).catch((err)=>console.log(err))
