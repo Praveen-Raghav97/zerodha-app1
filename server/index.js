@@ -1,10 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import { HoldingsModel } from './models/HoldingsModel.js';
-import { PositionsModel } from './models/PostionsModel.js';
-import { OrdersModel } from './models/OrdersModel.js';
+
 import cors from 'cors'
+import holdingsRouter from './routes/holdings.route.js';
+import positionsRouter from './routes/positions.route.js';
 dotenv.config();
 const app = express();
 app.use(cors(
@@ -16,11 +16,12 @@ const mongoUrl =  process.env.MONGO_URL;
 //console.log(mongoUrl)
 // Middleware to parse JSON
 app.use(express.json());
+app.use("/holdings" , holdingsRouter)
+app.use("/positions" , positionsRouter)
 
-// Basic route to handle GET requests
-app.get('/', (req, res) => {
-  res.send('Hello, Express.js!');
-});
+
+
+
 
 // Example POST route
 app.post('/data', (req, res) => {
@@ -29,6 +30,22 @@ app.post('/data', (req, res) => {
 });
 
 
+mongoose.connect(process.env.MONGO_URL).then(()=>
+
+  app.get("/" , (req,res)=>{
+      res.send("Hello , Server Connected")
+  }),
+
+
+  app.listen(3001 , ()=>{
+      console.log(`Data bese and server is running`)
+  }),
+
+
+)
+.catch((e)=>
+  console.log(e)
+)
 
 
 
@@ -206,32 +223,6 @@ app.post('/data', (req, res) => {
 
 
 
-app.get("/allHoldings", async (req, res) => {
-  let allHoldings = await HoldingsModel.find({});
-  res.json(allHoldings);
-});
-
-app.get("/allPositions", async (req, res) => {
-  let allPositions = await PositionsModel.find({});
-  res.json(allPositions);
-});
-
-app.post("/newOrder", async (req, res) => {
-  let newOrder = new OrdersModel({
-    name: req.body.name,
-    qty: req.body.qty,
-    price: req.body.price,
-    mode: req.body.mode,
-  });
-
-  newOrder.save();
-
-  res.send("Order saved!");
-});
 
 
-// Start the server
-app.listen(PORT, () => {
-  mongoose.connect(mongoUrl)
-  console.log(`Server And Db is running on http://localhost:${PORT} and ${mongoUrl}`);
-});
+
