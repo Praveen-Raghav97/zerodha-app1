@@ -1,11 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemText, Box, Link } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {AcmeLogo} from './AcmeLogo.js'
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+const [user, setuser] = useState("")
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    // Remove user data from localStorage
+   localStorage.removeItem('userId');
+   navigate('/')
+  };
+
+   
+
+   useEffect(()=>{
+    const getuser  = localStorage.getItem("userId")
+   // console.log(getuser)
+    setuser(getuser)
+ 
+   },[])
+
+   //console.log("user" , user);
+
+ 
+
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -65,9 +87,17 @@ const Navbar = () => {
             
           ))}
         </Box>
+        {!user?
         <Button color="" sx={{bgcolor:"#0d6efd" , color:"white"}} href={"/signup"}>
-              SignUp
-            </Button>
+        SignUp
+      </Button> :
+      
+      <Button color="" sx={{bgcolor:"#D2042D" , color:"white"}} onClick={handleLogout}>
+      LogOut
+    </Button>
+
+      }
+        
         {/* Hamburger Icon for smaller screens */}
         <IconButton
           color="inherit"

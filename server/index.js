@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import holdingsRouter from './routes/holdings.route.js';
 import positionsRouter from './routes/positions.route.js';
+import userRouter from './routes/user.route.js';
 dotenv.config();
 const app = express();
 app.use(cors({
@@ -21,7 +22,7 @@ const mongoUrl =  process.env.MONGO_URL;
 app.use(express.json());
 app.use("/holdings" , holdingsRouter)
 app.use("/positions" , positionsRouter)
-
+app.use("/User" , userRouter)
 
 
 app.get('/', (req, res) => {

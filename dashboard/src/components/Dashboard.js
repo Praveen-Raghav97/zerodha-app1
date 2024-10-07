@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Route, Routes } from 'react-router-dom'
 import Apps from "./Apps.js";
 import Funds from "./Funds";
@@ -7,15 +7,16 @@ import Holdings from "./Holdings";
 import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
-
+import Signup from './Signup.js';
+import Login from './Login.js';
 
 
 import TopBar from './TopBar.js';
 import Gp from './Gp.js';
+import { useState } from 'react'
  export const Dashboard = () => {
- 
 
-// Create a theme object
+  
 
   return (
     <div className="dashboard-container">
@@ -35,6 +36,11 @@ import Gp from './Gp.js';
         <Route path="/positions" element={<Positions />} />
         <Route path="/funds" element={<Funds />} />
         <Route path="/apps" element={<Apps />} />
+        <Route path="/login" element={<Login />} />
+        
+           <Route path="/signup" element={<Signup />} />
+      
+       
       </Routes>
     </div>
   </div>
