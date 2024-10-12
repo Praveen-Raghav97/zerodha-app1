@@ -70,6 +70,7 @@ const fetchUserDetailsById = async(req, res , next) =>{
         if (!existinguser) {
             res.send("user not found")
         }
+        return res.json(existinguser)
         res.send(existinguser)
     } catch (error) {
        res.send(error) 

@@ -6,8 +6,8 @@ const [user,setUser] = useState()
   async function fetchUserDetailsById() {
     
     try {
-      let userId = localStorage.getItem('userId')
-        const response = await axios.get(`https://zerodha-app-api.vercel.app/User/${userId}`);
+      let id = localStorage.getItem('userId')
+        const response = await axios.get(`https://zerodha-app-api.vercel.app/User/${id}`);
         
         if (!response.ok) {
             throw new Error(`Error fetching user details: ${response.statusText}`);
