@@ -14,7 +14,15 @@ import Login from './Login.js';
 import TopBar from './TopBar.js';
 import Gp from './Gp.js';
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom';
  export const Dashboard = () => {
+
+
+ const userid = localStorage.getItem('userId')
+
+
+ 
+
 
   
 
@@ -26,6 +34,7 @@ import { useState } from 'react'
       
       
     <div className="content">
+      
       <Routes>
         <Route  path="/" element={<Summary />} />
         <Route  path="/watch" element={<Gp/>} />
@@ -36,7 +45,10 @@ import { useState } from 'react'
         <Route path="/positions" element={<Positions />} />
         <Route path="/funds" element={<Funds />} />
         <Route path="/apps" element={<Apps />} />
-        <Route path="/login" element={<Login />} />
+      
+           <Route path="/login" element={<Login />} />
+      
+       
         
            <Route path="/signup" element={<Signup />} />
       

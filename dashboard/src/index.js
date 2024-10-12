@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './components/Home.js'
+import Login from './components/Login.js';
 import reportWebVitals from './reportWebVitals';
 import { NextUIProvider } from '@nextui-org/react';
 import {BrowserRouter , Routes , Route} from 'react-router-dom'
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
 root.render(
   <React.StrictMode>
 
@@ -14,7 +18,9 @@ root.render(
       <BrowserRouter>
       <main className="light text-foreground bg-background">
       <Routes>
-        <Route path="/*" element={<Home />} />
+      <Route path="/" element={<Login />} />
+
+        <Route path="/home" element={<Home />} />
       </Routes>
       </main>
 

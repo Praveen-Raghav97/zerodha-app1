@@ -14,8 +14,7 @@ const Login = () => {
         const response = await axios.post('https://zerodha-app-api.vercel.app/User/login', { email, password });
  
         console.log('Login success:', response.data);
-      
-          navigate('/');
+         navigate('/home');
           localStorage.setItem("userId" ,response.data.user._id)
           localStorage.setItem("token" ,response.data.token)
       } catch (error) {
@@ -25,7 +24,7 @@ const Login = () => {
     };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" className='mt-10'>
       <Box 
         sx={{ 
           marginTop: 8, 
@@ -47,7 +46,7 @@ const Login = () => {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="naman@gmail.com"
             name="email"
             autoComplete="email"
             autoFocus
@@ -60,7 +59,7 @@ const Login = () => {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="123456"
             type="password"
             id="password"
             autoComplete="current-password"

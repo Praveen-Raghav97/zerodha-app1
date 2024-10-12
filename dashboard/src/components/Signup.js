@@ -14,7 +14,7 @@ const Signup = () => {
       try {
         const response = await axios.post('https://zerodha-app-api.vercel.app/User/signup', { username, email, password });
         console.log('Signup success:', response.data);
-        navigate('/');
+        navigate('/login');
       } catch (error) {
         console.error('Error signing up:', error.response.data);
         alert('Invalid credentials');
