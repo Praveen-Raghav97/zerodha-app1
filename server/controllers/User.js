@@ -60,7 +60,23 @@ const userLogin = async(req, res , next)=>{
     }
 }
 
+const fetchUserDetailsById = async(req, res , next) =>{
+    let userId = req.params.id;
+    if (!userId) {
+       res.send("userId not found") 
+    }
+    try {
+        let existinguser = await User.findById(userId)
+        if (!existinguser) {
+            res.send("user not found")
+        }
+        res.send(existinguser)
+    } catch (error) {
+       res.send(error) 
+    }
+}
 export {
     userLogin,
-    userSignup
+    userSignup,
+    fetchUserDetailsById
 }

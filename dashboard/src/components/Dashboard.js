@@ -13,15 +13,19 @@ import Login from './Login.js';
 
 import TopBar from './TopBar.js';
 import Gp from './Gp.js';
-import { useState } from 'react'
-import { Navigate } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
  export const Dashboard = () => {
 
+const [user, setuser] = useState()
+  localStorage.getItem('userId')
 
- const userid = localStorage.getItem('userId')
+  useEffect(()=>{
+    setuser(localStorage.getItem("userId"))
+  },[])
 
+const navigate = useNavigate()
 
- 
 
 
   
@@ -36,6 +40,7 @@ import { Navigate } from 'react-router-dom';
     <div className="content">
       
       <Routes>
+        
         <Route  path="/" element={<Summary />} />
         <Route  path="/watch" element={<Gp/>} />
         
@@ -45,8 +50,10 @@ import { Navigate } from 'react-router-dom';
         <Route path="/positions" element={<Positions />} />
         <Route path="/funds" element={<Funds />} />
         <Route path="/apps" element={<Apps />} />
-      
-           <Route path="/login" element={<Login />} />
+  
+         <Route path="/login" element={<Login />} />
+       
+          
       
        
         

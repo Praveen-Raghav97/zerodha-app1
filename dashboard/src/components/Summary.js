@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Summary = () => {
+const [user,setUser] = useState()
+  async function fetchUserDetailsById() {
+    
+    try {
+      let userId = localStorage.getItem('userId')
+        const response = await fetch(`https://zerodha-app-api.vercel.app/User/${userId}`);
+        
+        if (!response.ok) {
+            throw new Error(`Error fetching user details: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Failed to fetch user details:', error);
+        return null;
+    }
+}
+
+useEffect(()=>{
+  fetchUserDetailsById().then(user => setUser(user) ,console.log(user))
+  .catch(err => console.log(err))
+})
+
   return (
     <div  className="shadow-lg h-screen px-4 py-2  ">
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>Hi, {user.name}</h6>
         <hr className="divider" />
       </div>
 

@@ -9,10 +9,11 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 const [user, setuser] = useState("")
   const navigate = useNavigate()
+  
   const handleLogout = () => {
     // Remove user data from localStorage
    localStorage.removeItem('userId');
-   navigate('/')
+   navigate('/login')
   };
 
    
@@ -88,8 +89,8 @@ const [user, setuser] = useState("")
           ))}
         </Box>
         {!user?
-        <Button color="" sx={{bgcolor:"#0d6efd" , color:"white"}} href={"/signup"}>
-        SignUp
+        <Button color="" sx={{bgcolor:"#0d6efd" , color:"white"}} href={"/login"}>
+        Login
       </Button> :
       
       <Button color="" sx={{bgcolor:"#D2042D" , color:"white"}} onClick={handleLogout}>
