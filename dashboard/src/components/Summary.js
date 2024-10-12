@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Summary = () => {
@@ -6,14 +7,15 @@ const [user,setUser] = useState()
     
     try {
       let userId = localStorage.getItem('userId')
-        const response = await fetch(`https://zerodha-app-api.vercel.app/User/${userId}`);
+        const response = await axios.get(`https://zerodha-app-api.vercel.app/User/${userId}`);
         
         if (!response.ok) {
             throw new Error(`Error fetching user details: ${response.statusText}`);
         }
 
-        const data = await response.json();
-        return data;
+        
+        return response;
+        console.log(response)
     } catch (error) {
         console.error('Failed to fetch user details:', error);
         return null;
