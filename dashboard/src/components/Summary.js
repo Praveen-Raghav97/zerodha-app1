@@ -30,7 +30,7 @@ useEffect(()=>{
   return (
     <div  className="shadow-lg h-screen px-4 py-2  ">
       <div className="username">
-        <h6>Hi,</h6>
+        <h6>Hi, Naman</h6>
         <hr className="divider" />
       </div>
 
