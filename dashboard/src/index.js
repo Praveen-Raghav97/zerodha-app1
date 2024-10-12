@@ -18,7 +18,7 @@ root.render(
       <BrowserRouter>
       <main className="light text-foreground bg-background">
       <Routes>
-      <Route path="/" element={<Login />} />
+      
 
         <Route path="/*" element={<Home />} />
       </Routes>

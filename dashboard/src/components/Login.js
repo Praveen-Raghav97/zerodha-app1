@@ -14,7 +14,7 @@ const Login = () => {
         const response = await axios.post('https://zerodha-app-api.vercel.app/User/login', { email, password });
  
         console.log('Login success:', response.data);
-         navigate('/home');
+         navigate('/');
           localStorage.setItem("userId" ,response.data.user._id)
           localStorage.setItem("token" ,response.data.token)
       } catch (error) {
